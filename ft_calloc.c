@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 11:30:41 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/08 12:28:51 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/09 13:33:22 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/09 16:32:50 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <string.h>
-
-size_t  ft_strlen(const char *s)
-{
-    char* l;
+ void *ft_calloc(size_t count, size_t size)
+ {
+    char *H;
     size_t i;
 
-    l = (char*)s;
-    i = 0;
-    while (s[i])
-    {
-        i++;
-    }
-    return(i);
-}
-/*int main()
-{
-    char* s = "maryam";
-    printf("%zu\n" , ft_strlen(s));
-    printf("%lu\n" , strlen(s));
-    return (0);
-}*/
+    i = count * size;
+    H = malloc(i);
+    if (H == 0)
+        return(NULL);      
+    ft_bzero(H, i);
+    return(H);
+ }
+
+ /*int main()
+ {
+     printf("%s",ft_calloc(4,3));
+     return(0);
+ }*/

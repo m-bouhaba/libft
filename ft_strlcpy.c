@@ -6,14 +6,28 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:33:50 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/07 15:26:48 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2021/11/07 20:08:57 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-/*size_t  ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    
-}*/
+    size_t len;
+    size_t i;
+    char *src1;
+
+    src1 = (char *) src;
+    i = 0;
+    len = ft_strlen(src1);
+    if (size == 0)
+        return(len);
+    while(src1[i] && (i < size - 1))
+    {
+        dst[i] = src1[i];
+        i++;
+    }
+    dst[i] = ('\0');
+    return (len);
+}

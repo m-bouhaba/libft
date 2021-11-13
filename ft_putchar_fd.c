@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 11:30:41 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/08 12:28:51 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/13 22:07:00 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/13 23:35:25 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <string.h>
-
-size_t  ft_strlen(const char *s)
+void	ft_putchar_fd(char c, int fd)
 {
-    char* l;
-    size_t i;
-
-    l = (char*)s;
-    i = 0;
-    while (s[i])
-    {
-        i++;
-    }
-    return(i);
+	write(fd, &c, 1);
 }
-/*int main()
-{
-    char* s = "maryam";
-    printf("%zu\n" , ft_strlen(s));
-    printf("%lu\n" , strlen(s));
-    return (0);
-}*/

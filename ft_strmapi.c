@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 11:30:41 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/08 12:28:51 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/12 03:32:33 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/12 13:39:39 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <string.h>
-
-size_t  ft_strlen(const char *s)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char* l;
-    size_t i;
+	char *str;
+	unsigned int i;
 
-    l = (char*)s;
-    i = 0;
-    while (s[i])
-    {
-        i++;
-    }
-    return(i);
+	if (!s)
+		return(NULL);
+	str = malloc(sizeof (char) * (ft_strlen(s) + 1));
+	if(!str)
+		return(NULL);
+	i = 0;
+	while(s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return(str);
 }
-/*int main()
-{
-    char* s = "maryam";
-    printf("%zu\n" , ft_strlen(s));
-    printf("%lu\n" , strlen(s));
-    return (0);
-}*/

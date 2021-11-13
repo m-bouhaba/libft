@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 11:30:28 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/09 16:06:47 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/08 15:42:26 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/08 21:18:04 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdio.h>
+#include "libft.h"
 #include <string.h>
 
-void    *ft_memset(void *b, int c, size_t len)
+int   ft_memcmp(const void *s1, const void *s2, size_t n)
 {
     size_t i;
-    unsigned char * s;
     i = 0;
-    c = (unsigned char)c;
-    s= (unsigned char *)b;
-    while (i < len)
+    
+     unsigned char *str1;
+    unsigned char *str2;
+    
+    str1 = (unsigned char *)s1;
+    str2 = (unsigned char *)s2;
+    
+    if (n == 0)
+        return(0);
+   while (i < (n - 1) && str1[i] == str2[i])
     {
-        //(unsigned char)b[i] = c;
-        s[i] = c;
         i++;
     }
-    //return ((unsigned char *)b);
-    return (s);
+    return(str1[i] - str2[i]);
 }
 /*int main()
 {
-    char a[] = "ahmmad";
-    printf("%s\n", ft_memset(a, 'h', 4));
-    printf("%s\n", memset(a, 'h', 4));
+    char s1[] = "maryam";
+    char s2[] = "mbryam";
+    printf("%d\n", ft_memcmp(s1, s2, 3));
 }*/

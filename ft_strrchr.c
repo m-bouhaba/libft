@@ -1,28 +1,32 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/11 23:14:53 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/11 23:17:57 by mbouhaba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char    *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    int i;
-    char *str;
+	int	i;
+	char*	str;
 
-    str = (char *) s;
-    i = ft_strlen(str) - 1;
-    if (c == 0)
+	str = (char *) s;
+	c = (char )c;
+	i = (ft_strlen(str));
+    if(c == 0)
         return(str + ft_strlen(str));
-    while(str[i])
+    while(i >= 0)
     {
-        if (str[i] == c)
-            return(&str[i]);
-        i--;
+        if(str[i] == c)
+			return (&str[i]);
+		i--;
     }
     return(0);
 }
-/*int main()
-{
-    char str[] = {"maryam student"};
-    printf("%s\n", ft_strrchr(str, 'm'));
-    printf("%s\n", strrchr(str, 'm'));
-    return(0);
-}*/

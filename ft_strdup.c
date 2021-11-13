@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 11:30:28 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/09 16:06:47 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/09 15:25:17 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/09 16:52:58 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-void    *ft_memset(void *b, int c, size_t len)
+char    *ft_strdup(const char *s1)
 {
-    size_t i;
-    unsigned char * s;
+    char *s;
+    int i;
+    char *p;
+
+    s = (char *)s1;
+    p = malloc(sizeof(char) * (ft_strlen(s) + 1));
+    //p = malloc(sizeof(char *))s1;
+    if (!p)
+        return (NULL);
     i = 0;
-    c = (unsigned char)c;
-    s= (unsigned char *)b;
-    while (i < len)
+    while (s[i])
     {
-        //(unsigned char)b[i] = c;
-        s[i] = c;
+        p[i] = s1[i];
         i++;
     }
-    //return ((unsigned char *)b);
-    return (s);
+    p[i] = '\0';
+    return (p);
 }
 /*int main()
 {
-    char a[] = "ahmmad";
-    printf("%s\n", ft_memset(a, 'h', 4));
-    printf("%s\n", memset(a, 'h', 4));
+    char str[] = "maryam";
+    //printf("%s\n", ft_strdup(str));
+    printf("%s\n", strdup(str));
 }*/

@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 11:30:41 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/08 12:28:51 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/10 12:16:13 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/11 23:03:00 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <string.h>
-
-size_t  ft_strlen(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char* l;
-    size_t i;
+	char	*new;
+	size_t	i;
+	size_t	j;
 
-    l = (char*)s;
-    i = 0;
-    while (s[i])
-    {
-        i++;
-    }
-    return(i);
+	i = 0;
+	j = 0;
+	if (!s)
+		return (0);
+	if (start >= ft_strlen(s))
+		len = 0;
+	while ((i < len) && s[i])
+	i++;
+	new = malloc((i + 1) * sizeof(char));
+	if (!new)
+		return (NULL);
+	while (j < i)
+	{
+		new[j] = s[start];
+		j++;
+		start++;
+	}
+	new[j] = '\0';
+	return (new);
 }
-/*int main()
-{
-    char* s = "maryam";
-    printf("%zu\n" , ft_strlen(s));
-    printf("%lu\n" , strlen(s));
-    return (0);
-}*/
