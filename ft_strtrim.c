@@ -6,7 +6,7 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 18:09:00 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/12 15:45:25 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2021/11/17 03:32:05 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 
 	start = 0;
-	if(!s1 || !set)
-		return(NULL);
+	if (!s1 || !set)
+		return (NULL);
 	while (s1[start] != '\0' && setchar(s1[start], set))
 		start++;
-    end = ft_strlen((char *)s1); 
-    while(end > start && setchar(s1[end - 1], set))
+	end = ft_strlen((char *)s1);
+	while (end > start && setchar(s1[end - 1], set))
 		end--;
-	str = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
 	if (str == NULL)
 		return (NULL);
 	i = 0;

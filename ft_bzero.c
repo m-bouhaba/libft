@@ -6,17 +6,15 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:31:01 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/09 16:36:07 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2021/11/18 16:12:05 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <strings.h>
 #include "libft.h"
 
-void    ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    ft_memset(s, 0, n);
+	ft_memset (s, 0, n);
 }
 
 /*int main()

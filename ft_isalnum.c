@@ -6,18 +6,21 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:41:12 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/07 15:26:23 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2021/11/17 02:22:54 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
-int ft_isalnum(int c)
+
+int	ft_isalnum(int c)
 {
-    if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return (1);
-    else
-        return(0);
+	if ((c >= '0' && c <= '9')
+		|| (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }
 /*int main()
 {

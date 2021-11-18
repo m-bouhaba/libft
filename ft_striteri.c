@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 23:14:53 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/17 03:31:24 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/17 00:33:57 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/18 16:06:57 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+/*void	ft_maj(unsigned int i, char *s)
 {
-	int		i;
-	char	*str;
+	*s -= 32;
+}*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
-	str = (char *) s;
-	c = (char )c;
-	i = (ft_strlen(str));
-	if (c == 0)
-		return (str + ft_strlen(str));
-	while (i >= 0)
+	i = 0;
+	while (s[i])
 	{
-		if (str[i] == c)
-			return (&str[i]);
-		i--;
+		f(i, &s[i]);
+		i++;
 	}
-	return (0);
 }
+/*int main()
+{
+	char p[] = "maryam";
+	ft_striteri(p, &ft_maj);
+	printf("%s",p);
+}*/

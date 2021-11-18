@@ -1,32 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 23:14:53 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/17 03:31:24 by mbouhaba         ###   ########.fr       */
+/*   Created: 2021/11/14 04:01:17 by mbouhaba          #+#    #+#             */
+/*   Updated: 2021/11/14 04:26:41 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	count(int nbr)
 {
-	int		i;
-	char	*str;
+	int	j;
 
-	str = (char *) s;
-	c = (char )c;
-	i = (ft_strlen(str));
-	if (c == 0)
-		return (str + ft_strlen(str));
-	while (i >= 0)
+	j = 1;
+	while (nbr > 9)
 	{
-		if (str[i] == c)
-			return (&str[i]);
-		i--;
+		j = j * 10;
+		nbr = nbr / 10;
 	}
-	return (0);
+	return (j);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	int	i;
+
+	if (n == -2147483648)
+		write (fd, "-2147483648", 11);
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n *= -1;
+		}
+		i = count(n);
+		while (i > 9)
+		{
+			ft_putchar_fd (n / i + '0', fd);
+			n = n - ((n / i) * i);
+			i = i / 10;
+		}
+		ft_putchar_fd(n + '0', fd);
+	}
 }

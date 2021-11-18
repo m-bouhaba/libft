@@ -6,13 +6,14 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 09:20:40 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/07 13:22:31 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2021/11/17 02:25:08 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
-int ft_isdigit(int c)
+
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

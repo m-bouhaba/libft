@@ -6,7 +6,7 @@
 /*   By: mbouhaba <mbouhaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 23:36:01 by mbouhaba          #+#    #+#             */
-/*   Updated: 2021/11/13 23:41:36 by mbouhaba         ###   ########.fr       */
+/*   Updated: 2021/11/17 02:52:02 by mbouhaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);	
+	ft_putchar_fd('\n', fd);
 }
